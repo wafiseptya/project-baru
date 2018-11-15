@@ -13,7 +13,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        $data = Barang::all();
+        return view('barang',compact('data'));
     }
 
     /**
@@ -34,7 +35,13 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Barang();
+        $data->nama_barang = $request->nama_barang;
+        $data->stok = $request->stok;
+        $data->harga = $request->harga;
+        $data->expired_date = $request->expired_date;
+        $data->tanggal_produksi = $request->tanggal_produksi;
+        $data->save();
     }
 
     /**
